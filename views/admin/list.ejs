@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head><%- include('_layout_head') %></head>
+<body class="admin-body">
+  <%- include('_sidebar', { active: resource.name }) %>
+  <main class="admin-main">
+    <header class="admin-head">
+      <div>
+        <h1><%= resource.icon %> <%= resource.label %></h1>
+        <p class="admin-sub"><%= items.length %> item<%= items.length === 1 ? '' : 's' %></p>
+      </div>
+      <a class="btn-primary" href="<%= adminBase %>/r/<%= resource.name %>/new">＋ New <%= resource.singular %></a>
+    </header>
+
+    <%- include('_flash') %>
+
+    <% if (items.length === 0) { %>
+      <div class="panel empty-state">
+        <p>No <%= resource.label.toLowerCase() %> yet.</p>
+        <a class="btn-primary" href="<%= adminBase %>/r/<%= resource.name %>/new">Create the first one</a>
+      </div>
+    <% } else { %>
+      <div class="table-wrap panel">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <% resource.listColumns.forEach(function(col){ %><th><%= col %></th><% }); %>
+              <th class="col-actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% items.forEach(function(item){ %>
+              <tr>
+                <% resource.listColumns.forEach(function(col){ %>
+                  <td>
+                    <% var val = item[col]; %>
+                    <% if (typeof val === 'boolean') { %>
+                      <span class="pill <%= val ? 'pill-on' : 'pill-off' %>"><%= val ? 'Yes' : 'No' %></span>
+                    <% } else if (Array.isArray(val)) { %>
+                      <%= val.join(', ') %>
+                    <% } else { %>
+                      <%= (val || '').toString().slice(0, 70) %><%= (val||'').toString().length > 70 ? '…' : '' %>
+                    <% } %>
+                  </td>
+                <% }); %>
+                <td class="col-actions">
+                  <a class="mini" href="<%= adminBase %>/r/<%= resource.name %>/<%= item.id %>/edit">Edit</a>
+                  <form method="post" action="<%= adminBase %>/r/<%= resource.name %>/<%= item.id %>/delete"
+                        onsubmit="return confirm('Delete this <%= resource.singular %>?');">
+                    <button class="mini mini-danger" type="submit">Delete</button>
+                  </form>
+                </td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    <% } %>
+  </main>
+</body>
+</html>

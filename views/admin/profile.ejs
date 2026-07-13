@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head><%- include('_layout_head') %></head>
+<body class="admin-body">
+  <%- include('_sidebar', { active: 'profile' }) %>
+  <main class="admin-main">
+    <header class="admin-head">
+      <div>
+        <h1>⚙️ Site Settings</h1>
+        <p class="admin-sub">These texts and images power your public pages.</p>
+      </div>
+    </header>
+
+    <%- include('_flash') %>
+
+    <form class="panel form" method="post" action="<%= adminBase %>/profile" enctype="multipart/form-data">
+      <h2 class="form-section">Identity</h2>
+      <div class="grid-2">
+        <div class="field"><label class="field-label">Name</label><input type="text" name="name" value="<%= profile.name || '' %>" /></div>
+        <div class="field"><label class="field-label">Role / Title</label><input type="text" name="role" value="<%= profile.role || '' %>" /></div>
+        <div class="field"><label class="field-label">Location</label><input type="text" name="location" value="<%= profile.location || '' %>" /></div>
+        <div class="field"><label class="field-label">Brand (header)</label><input type="text" name="brand" value="<%= profile.brand || '' %>" /></div>
+      </div>
+
+      <h2 class="form-section">Hero (Home)</h2>
+      <div class="field"><label class="field-label">Greeting</label><input type="text" name="heroGreeting" value="<%= profile.heroGreeting || '' %>" /></div>
+      <div class="field"><label class="field-label">Headline</label><textarea name="heroHeadline" rows="2"><%= profile.heroHeadline || '' %></textarea></div>
+      <div class="field">
+        <label class="field-label">Hero photo</label>
+        <% if (profile.heroImage) { %><div class="img-current"><img src="<%= profile.heroImage %>" alt="" /></div><% } %>
+        <input type="file" name="heroImageFile" accept="image/*" />
+      </div>
+      <div class="field"><label class="field-label">Featured section intro</label><textarea name="featuredIntro" rows="3"><%= profile.featuredIntro || '' %></textarea></div>
+
+      <h2 class="form-section">About page</h2>
+      <div class="field"><label class="field-label">About headline</label><input type="text" name="aboutHeadline" value="<%= profile.aboutHeadline || '' %>" /></div>
+      <div class="field"><label class="field-label">Bio</label><textarea name="aboutBio" rows="4"><%= profile.aboutBio || '' %></textarea></div>
+      <div class="field"><label class="field-label">Story title</label><input type="text" name="storyTitle" value="<%= profile.storyTitle || '' %>" /></div>
+      <div class="field"><label class="field-label">Story text</label><textarea name="storyText" rows="3"><%= profile.storyText || '' %></textarea></div>
+      <div class="field"><label class="field-label">Tools intro</label><textarea name="toolsIntro" rows="3"><%= profile.toolsIntro || '' %></textarea></div>
+      <div class="field">
+        <label class="field-label">About photo (foto pribadi)</label>
+        <% if (profile.aboutImage) { %><div class="img-current"><img src="<%= profile.aboutImage %>" alt="" /></div><% } %>
+        <input type="file" name="aboutImageFile" accept="image/*" />
+      </div>
+
+      <h2 class="form-section">Contact (footer)</h2>
+      <div class="grid-2">
+        <div class="field"><label class="field-label">Email</label><input type="email" name="email" value="<%= profile.email || '' %>" /></div>
+        <div class="field"><label class="field-label">LinkedIn URL</label><input type="url" name="linkedin" value="<%= profile.linkedin || '' %>" /></div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-primary" type="submit">Save settings</button>
+        <a class="btn-ghost" href="/" target="_blank">Preview site ↗</a>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head><%- include('../partials/head') %></head>
+<body>
+  <div class="aurora" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span>
+    <span class="blob b3"></span><span class="blob b4"></span>
+    <span class="grain"></span>
+  </div>
+
+  <%- include('../partials/header') %>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero container">
+      <div class="hero-copy">
+        <p class="eyebrow reveal"><span class="dot"></span><%= profile.heroGreeting %></p>
+        <h1 class="hero-title reveal">
+          <% const words = (profile.heroHeadline || '').split(' '); %>
+          <% words.forEach(function(w){ %><span class="word"><%= w %> </span><% }); %>
+        </h1>
+        <p class="hero-sub reveal"><%= profile.role %> · <%= profile.location %></p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-glow" href="/projects">View projects</a>
+          <a class="btn btn-ghost" href="/about">About me</a>
+        </div>
+      </div>
+      <div class="hero-media reveal">
+        <div class="glass photo-card">
+          <% if (profile.heroImage) { %>
+            <img src="<%= profile.heroImage %>" alt="<%= profile.name %>" />
+          <% } else { %>
+            <div class="photo-placeholder">
+              <span><%= profile.name.charAt(0) %></span>
+              <p>Add your photo in Admin → Settings</p>
+            </div>
+          <% } %>
+          <div class="photo-badge glass-soft">
+            <strong><%= profile.name %></strong>
+            <span><%= profile.role %></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <% for (let i=0;i<2;i++){ %>
+          <span>Social Media Management</span><span>✦</span>
+          <span>Content Design</span><span>✦</span>
+          <span>Brand Visual</span><span>✦</span>
+          <span>Copy Writing</span><span>✦</span>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- FEATURED CREATIONS -->
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Featured Creations</p>
+          <h2 class="section-title serif">Where bold ideas meet<br/>thoughtful design.</h2>
+        </div>
+        <p class="section-lead"><%= profile.featuredIntro %></p>
+      </div>
+
+      <div class="creations">
+        <% services.forEach(function(s, i){ %>
+          <article class="creation glass reveal" style="--i:<%= i %>">
+            <div class="creation-top">
+              <span class="creation-icon"><%- include('../partials/icon', { name: s.icon }) %></span>
+              <span class="creation-index">0<%= i + 1 %></span>
+            </div>
+            <h3 class="creation-title"><%= s.title %></h3>
+            <p class="creation-summary"><%= s.summary %></p>
+            <div class="creation-detail"><p><%= s.detail %></p></div>
+            <a class="creation-link" href="/projects?category=<%= encodeURIComponent(s.title) %>">
+              Explore <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        <% }); %>
+      </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <% if (videos && videos.length) { %>
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Watch</p>
+          <h2 class="section-title serif">Video highlights</h2>
+        </div>
+        <p class="section-lead">A few pieces of video content — best watched with the sound on.</p>
+      </div>
+      <div class="video-grid">
+        <% videos.forEach(function(v){ %>
+          <article class="video-card glass reveal">
+            <div class="video-frame">
+              <% if (v.embedId) { %>
+                <iframe src="https://www.youtube-nocookie.com/embed/<%= v.embedId %>"
+                        title="<%= v.title %>" loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+              <% } else { %>
+                <div class="thumb-placeholder"><span>Invalid video link</span></div>
+              <% } %>
+            </div>
+            <div class="video-body">
+              <h3><%= v.title %></h3>
+              <% if (v.description) { %><p><%= v.description %></p><% } %>
+            </div>
+          </article>
+        <% }); %>
+      </div>
+    </section>
+    <% } %>
+
+    <!-- FEATURED PROJECTS -->
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Selected Work</p>
+          <h2 class="section-title serif">Featured projects</h2>
+        </div>
+        <a class="link-arrow" href="/projects">All projects <span>→</span></a>
+      </div>
+
+      <div class="project-grid">
+        <% featured.forEach(function(p){ %>
+          <a class="project-card glass reveal" href="/projects/<%= p.id %>">
+            <div class="project-thumb">
+              <% if (p.cover) { %>
+                <img src="<%= p.cover %>" alt="<%= p.title %>" />
+              <% } else { %>
+                <div class="thumb-placeholder"><span><%= p.category %></span></div>
+              <% } %>
+              <% if (p.engagement) { %><span class="chip chip-glow"><%= p.engagement %></span><% } %>
+            </div>
+            <div class="project-body">
+              <span class="project-cat"><%= p.category %></span>
+              <h3><%= p.title %></h3>
+              <p><%= (p.description || '').slice(0, 90) %><%= (p.description||'').length > 90 ? '…' : '' %></p>
+            </div>
+          </a>
+        <% }); %>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

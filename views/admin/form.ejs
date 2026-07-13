@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head><%- include('_layout_head') %></head>
+<body class="admin-body">
+  <%- include('_sidebar', { active: resource.name }) %>
+  <main class="admin-main">
+    <header class="admin-head">
+      <div>
+        <a class="crumb" href="<%= adminBase %>/r/<%= resource.name %>">← <%= resource.label %></a>
+        <h1><%= isNew ? 'New' : 'Edit' %> <%= resource.singular %></h1>
+      </div>
+    </header>
+
+    <form class="panel form"
+          method="post"
+          enctype="multipart/form-data"
+          action="<%= isNew ? adminBase + '/r/' + resource.name : adminBase + '/r/' + resource.name + '/' + item.id %>">
+      <% resource.fields.forEach(function(f){ %>
+        <div class="field field-<%= f.type %>">
+          <label class="field-label" for="f-<%= f.name %>"><%= f.label %><% if (f.required) { %> <span class="req">*</span><% } %></label>
+          <% if (f.hint) { %><p class="field-hint"><%= f.hint %></p><% } %>
+
+          <% if (f.type === 'textarea') { %>
+            <textarea id="f-<%= f.name %>" name="<%= f.name %>" rows="4"><%= item[f.name] || '' %></textarea>
+
+          <% } else if (f.type === 'checkbox') { %>
+            <label class="switch">
+              <input type="checkbox" name="<%= f.name %>" <%= item[f.name] ? 'checked' : '' %> />
+              <span class="switch-track"></span>
+              <span class="switch-text">Enabled</span>
+            </label>
+
+          <% } else if (f.type === 'number') { %>
+            <input id="f-<%= f.name %>" type="number" name="<%= f.name %>" value="<%= item[f.name] != null ? item[f.name] : '' %>" />
+
+          <% } else if (f.type === 'tags') { %>
+            <input id="f-<%= f.name %>" type="text" name="<%= f.name %>"
+                   value="<%= Array.isArray(item[f.name]) ? item[f.name].join(', ') : (item[f.name] || '') %>" />
+
+          <% } else if (f.type === 'select') { %>
+            <% var opts = f.options || (f.optionsFrom === 'services' ? serviceTitles : []); %>
+            <select id="f-<%= f.name %>" name="<%= f.name %>">
+              <option value="">— choose —</option>
+              <% opts.forEach(function(o){ %>
+                <option value="<%= o %>" <%= item[f.name] === o ? 'selected' : '' %>><%= o %></option>
+              <% }); %>
+            </select>
+
+          <% } else if (f.type === 'image') { %>
+            <% if (item[f.name]) { %>
+              <div class="img-current">
+                <img src="<%= item[f.name] %>" alt="" />
+                <label class="clear-check"><input type="checkbox" name="<%= f.name %>__clear" /> Remove image</label>
+              </div>
+            <% } %>
+            <input type="hidden" name="<%= f.name %>" value="<%= item[f.name] || '' %>" />
+            <input id="f-<%= f.name %>" type="file" name="<%= f.name %>File" accept="image/*" />
+
+          <% } else if (f.type === 'gallery') { %>
+            <% if (Array.isArray(item[f.name]) && item[f.name].length) { %>
+              <div class="gallery-manage">
+                <% item[f.name].forEach(function(url){ %>
+                  <label class="gallery-thumb">
+                    <img src="<%= url %>" alt="" />
+                    <input type="hidden" name="<%= f.name %>" value="<%= url %>" />
+                    <span class="remove-tag"><input type="checkbox" name="<%= f.name %>__remove" value="<%= url %>" /> remove</span>
+                  </label>
+                <% }); %>
+              </div>
+            <% } %>
+            <input id="f-<%= f.name %>" type="file" name="galleryFiles" accept="image/*" multiple />
+            <p class="field-hint">Select one or more images to add to the gallery.</p>
+
+          <% } else { %>
+            <input id="f-<%= f.name %>" type="text" name="<%= f.name %>" value="<%= item[f.name] || '' %>" <%= f.required ? 'required' : '' %> />
+          <% } %>
+        </div>
+      <% }); %>
+
+      <div class="form-actions">
+        <button class="btn-primary" type="submit"><%= isNew ? 'Create' : 'Save changes' %></button>
+        <a class="btn-ghost" href="<%= adminBase %>/r/<%= resource.name %>">Cancel</a>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

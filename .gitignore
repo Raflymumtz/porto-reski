@@ -1,0 +1,6 @@
+node_modules/
+.env
+*.log
+
+# Uploaded portfolio images ARE tracked so the deployed site keeps its media.
+# (If you prefer to keep them out of git, ignore public/uploads/* here.)

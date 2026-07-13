@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head><%- include('../partials/head') %></head>
+<body>
+  <div class="aurora" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span>
+    <span class="blob b3"></span><span class="blob b4"></span>
+    <span class="grain"></span>
+  </div>
+
+  <%- include('../partials/header') %>
+
+  <main>
+    <section class="section container about-hero">
+      <div class="about-intro">
+        <p class="kicker reveal">About me</p>
+        <h1 class="section-title serif reveal"><%= profile.aboutHeadline %></h1>
+        <p class="about-bio reveal"><%= profile.aboutBio %></p>
+        <div class="about-facts reveal">
+          <div class="glass-soft fact"><strong><%= profile.role %></strong><span>Role</span></div>
+          <div class="glass-soft fact"><strong><%= profile.location %></strong><span>Based in</span></div>
+        </div>
+      </div>
+      <div class="about-photo reveal">
+        <div class="glass photo-card">
+          <% if (profile.aboutImage) { %>
+            <img src="<%= profile.aboutImage %>" alt="<%= profile.name %>" />
+          <% } else { %>
+            <div class="photo-placeholder"><span><%= profile.name.charAt(0) %></span><p>Foto pribadi Reski</p></div>
+          <% } %>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY + EXPERIENCE -->
+    <section class="section container story-grid">
+      <div class="story glass reveal">
+        <p class="kicker">The story</p>
+        <h2 class="serif story-title"><%= profile.storyTitle %></h2>
+        <p><%= profile.storyText %></p>
+      </div>
+      <div class="timeline reveal">
+        <p class="kicker">Experience</p>
+        <% experiences.forEach(function(e){ %>
+          <div class="timeline-item glass-soft">
+            <span class="timeline-dot"></span>
+            <div>
+              <h3><%= e.role %></h3>
+              <p class="timeline-company"><%= e.company %></p>
+              <p class="timeline-period"><%= e.period %></p>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section class="section container">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Tools of the trade</p>
+          <h2 class="section-title serif">What I create with</h2>
+        </div>
+        <p class="section-lead"><%= profile.toolsIntro %></p>
+      </div>
+      <div class="tools-grid">
+        <% tools.forEach(function(t, i){ %>
+          <article class="tool glass reveal" style="--i:<%= i %>">
+            <span class="tool-index">0<%= i+1 %></span>
+            <h3><%= t.name %></h3>
+            <p><%= t.description %></p>
+          </article>
+        <% }); %>
+      </div>
+    </section>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

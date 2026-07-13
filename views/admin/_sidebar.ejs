@@ -1,0 +1,22 @@
+<aside class="sidebar">
+  <a class="side-brand" href="<%= adminBase %>/">
+    <span class="side-mark">✦</span>
+    <div><strong>Reski CMS</strong><span>Content manager</span></div>
+  </a>
+  <nav class="side-nav">
+    <a href="<%= adminBase %>/" class="<%= active === 'dashboard' ? 'active' : '' %>"><span>🏠</span> Dashboard</a>
+    <% Object.keys(resources).forEach(function(key){ %>
+      <a href="<%= adminBase %>/r/<%= key %>" class="<%= active === key ? 'active' : '' %>">
+        <span><%= resources[key].icon %></span> <%= resources[key].label %>
+      </a>
+    <% }); %>
+    <a href="<%= adminBase %>/profile" class="<%= active === 'profile' ? 'active' : '' %>"><span>⚙️</span> Site Settings</a>
+  </nav>
+  <div class="side-foot">
+    <a class="side-view" href="/" target="_blank">↗ View public site</a>
+    <form method="post" action="<%= adminBase %>/logout">
+      <button class="side-logout" type="submit">Log out</button>
+    </form>
+    <p class="side-user">Signed in as <strong><%= currentUser ? currentUser.username : '' %></strong></p>
+  </div>
+</aside>

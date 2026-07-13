@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head><%- include('../partials/head') %></head>
+<body>
+  <div class="aurora" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span>
+    <span class="blob b3"></span><span class="blob b4"></span>
+    <span class="grain"></span>
+  </div>
+
+  <%- include('../partials/header') %>
+
+  <main>
+    <article class="section container project-detail">
+      <a class="link-arrow back" href="/projects"><span>←</span> Back to projects</a>
+
+      <header class="detail-head reveal">
+        <span class="project-cat"><%= project.category %></span>
+        <h1 class="serif detail-title"><%= project.title %></h1>
+        <div class="detail-meta">
+          <% if (project.client) { %><span><strong>Client</strong><%= project.client %></span><% } %>
+          <% if (project.year) { %><span><strong>Year</strong><%= project.year %></span><% } %>
+          <% if (project.engagement) { %><span><strong>Result</strong><%= project.engagement %></span><% } %>
+        </div>
+      </header>
+
+      <div class="detail-hero glass reveal">
+        <% if (project.cover) { %>
+          <img src="<%= project.cover %>" alt="<%= project.title %>" />
+        <% } else { %>
+          <div class="thumb-placeholder big"><span><%= project.category %></span></div>
+        <% } %>
+      </div>
+
+      <div class="detail-body reveal">
+        <p class="detail-desc"><%= project.description %></p>
+        <% if (project.tags && project.tags.length) { %>
+          <div class="tag-row">
+            <% project.tags.forEach(function(t){ %><span class="tag"><%= t %></span><% }); %>
+          </div>
+        <% } %>
+        <% if (project.link) { %>
+          <a class="btn btn-glow" href="<%= project.link %>" target="_blank" rel="noopener">Visit project →</a>
+        <% } %>
+      </div>
+
+      <% if (project.gallery && project.gallery.length) { %>
+        <div class="gallery reveal">
+          <% project.gallery.forEach(function(g){ %>
+            <div class="gallery-item glass"><img src="<%= g %>" alt="<%= project.title %>" /></div>
+          <% }); %>
+        </div>
+      <% } %>
+
+      <% if (related && related.length) { %>
+        <section class="related">
+          <h2 class="serif">More in <%= project.category %></h2>
+          <div class="project-grid">
+            <% related.forEach(function(p){ %>
+              <a class="project-card glass" href="/projects/<%= p.id %>">
+                <div class="project-thumb">
+                  <% if (p.cover) { %><img src="<%= p.cover %>" alt="<%= p.title %>" />
+                  <% } else { %><div class="thumb-placeholder"><span><%= p.category %></span></div><% } %>
+                </div>
+                <div class="project-body">
+                  <span class="project-cat"><%= p.category %></span>
+                  <h3><%= p.title %></h3>
+                </div>
+              </a>
+            <% }); %>
+          </div>
+        </section>
+      <% } %>
+    </article>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

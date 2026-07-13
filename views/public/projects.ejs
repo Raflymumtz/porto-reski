@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head><%- include('../partials/head') %></head>
+<body>
+  <div class="aurora" aria-hidden="true">
+    <span class="blob b1"></span><span class="blob b2"></span>
+    <span class="blob b3"></span><span class="blob b4"></span>
+    <span class="grain"></span>
+  </div>
+
+  <%- include('../partials/header') %>
+
+  <main>
+    <section class="section container">
+      <div class="page-head reveal">
+        <p class="kicker">Projects</p>
+        <h1 class="section-title serif">A selection of things<br/>I've crafted.</h1>
+      </div>
+
+      <div class="filters reveal">
+        <a class="filter <%= !category ? 'active' : '' %>" href="/projects">All</a>
+        <% services.forEach(function(s){ %>
+          <a class="filter <%= category === s.title ? 'active' : '' %>"
+             href="/projects?category=<%= encodeURIComponent(s.title) %>"><%= s.title %></a>
+        <% }); %>
+      </div>
+
+      <% if (projects.length === 0) { %>
+        <div class="empty glass">No projects in this category yet.</div>
+      <% } else { %>
+        <div class="project-grid wide">
+          <% projects.forEach(function(p){ %>
+            <a class="project-card glass reveal" href="/projects/<%= p.id %>">
+              <div class="project-thumb">
+                <% if (p.cover) { %>
+                  <img src="<%= p.cover %>" alt="<%= p.title %>" />
+                <% } else { %>
+                  <div class="thumb-placeholder"><span><%= p.category %></span></div>
+                <% } %>
+                <% if (p.engagement) { %><span class="chip chip-glow"><%= p.engagement %></span><% } %>
+              </div>
+              <div class="project-body">
+                <span class="project-cat"><%= p.category %></span>
+                <h3><%= p.title %></h3>
+                <p><%= (p.description || '').slice(0,100) %><%= (p.description||'').length>100?'…':'' %></p>
+                <% if (p.tags && p.tags.length) { %>
+                  <div class="tag-row">
+                    <% p.tags.slice(0,3).forEach(function(t){ %><span class="tag"><%= t %></span><% }); %>
+                  </div>
+                <% } %>
+              </div>
+            </a>
+          <% }); %>
+        </div>
+      <% } %>
+    </section>
+  </main>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

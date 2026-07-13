@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head><%- include('_layout_head') %></head>
+<body class="login-body">
+  <div class="login-aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="login-card">
+    <div class="login-brand"><span class="side-mark">✦</span> Reski CMS</div>
+    <h1>Welcome back</h1>
+    <p class="login-sub">Sign in to manage your portfolio content.</p>
+    <% if (error) { %><div class="flash flash-error"><%= error %></div><% } %>
+    <form method="post" action="<%= adminBase %>/login" class="login-form">
+      <label>Username
+        <input type="text" name="username" autocomplete="username" required autofocus />
+      </label>
+      <label>Password
+        <input type="password" name="password" autocomplete="current-password" required />
+      </label>
+      <button class="btn-primary" type="submit">Sign in</button>
+    </form>
+    <p class="login-hint">Default: <code>admin</code> / <code>reski123</code> — change it in <code>config.js</code>.</p>
+  </div>
+</body>
+</html>

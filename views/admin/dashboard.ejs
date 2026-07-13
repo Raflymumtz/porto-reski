@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head><%- include('_layout_head') %></head>
+<body class="admin-body">
+  <%- include('_sidebar', { active: 'dashboard' }) %>
+  <main class="admin-main">
+    <header class="admin-head">
+      <div>
+        <h1>Dashboard</h1>
+        <p class="admin-sub">Welcome back — here's your content at a glance.</p>
+      </div>
+      <a class="btn-primary" href="/" target="_blank">View site ↗</a>
+    </header>
+
+    <%- include('_flash') %>
+
+    <div class="stat-grid">
+      <% Object.keys(resources).forEach(function(key){ %>
+        <a class="stat-card" href="<%= adminBase %>/r/<%= key %>">
+          <span class="stat-icon"><%= resources[key].icon %></span>
+          <span class="stat-num"><%= counts[key] %></span>
+          <span class="stat-label"><%= resources[key].label %></span>
+        </a>
+      <% }); %>
+    </div>
+
+    <section class="panel">
+      <h2>Quick actions</h2>
+      <div class="quick-actions">
+        <a href="<%= adminBase %>/r/projects/new" class="quick">＋ New project</a>
+        <a href="<%= adminBase %>/r/services/new" class="quick">＋ New creative space</a>
+        <a href="<%= adminBase %>/r/experiences/new" class="quick">＋ New experience</a>
+        <a href="<%= adminBase %>/r/tools/new" class="quick">＋ New tool</a>
+        <a href="<%= adminBase %>/profile" class="quick">⚙️ Edit site settings</a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Profile</h2>
+      <div class="profile-preview">
+        <div>
+          <strong><%= profile.name %></strong> — <%= profile.role %><br/>
+          <span class="muted"><%= profile.location %> · <%= profile.email %></span>
+        </div>
+        <a class="btn-ghost" href="<%= adminBase %>/profile">Edit</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

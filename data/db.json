@@ -1,0 +1,232 @@
+{
+  "profile": {
+    "name": "Reski",
+    "role": "Social Media Specialist",
+    "location": "Jakarta, Indonesia",
+    "brand": "Creative Space",
+    "heroGreeting": "Hi peeps!",
+    "heroHeadline": "My name is Reski, nice to meet you!",
+    "heroImage": "/uploads/whatsapp-image-2026-07-13-at-22-33-43-mrjbw7cn.jpeg",
+    "featuredIntro": "A selection of projects where bold ideas meet thoughtful design. From visual identities and digital experiences to creative brand communication, each work is crafted to leave a lasting impact.",
+    "aboutHeadline": "People call me Reski",
+    "aboutBio": "I'm a Social Media Specialist who enjoys transforming creative ideas into engaging and meaningful digital content. I love exploring trends, creating compelling visuals, and developing content strategies that help brands connect with their audiences. Beyond creating content, I enjoy collaborating, learning new things, and bringing positive energy into every project.",
+    "storyTitle": "One Post Led to Another",
+    "storyText": "Somehow, one idea turned into a post, one post became a campaign, and now here I am — planning content, editing videos, writing captions, and checking social media insights professionally.",
+    "toolsIntro": "The tools I use most often to transform ideas into engaging content, manage digital campaigns, and build meaningful connections between brands and their audiences.",
+    "aboutImage": "/uploads/whatsapp-image-2026-07-13-at-22-33-43-mrjbp4u6.jpeg",
+    "email": "reskifebrianti62@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/reski"
+  },
+  "services": [
+    {
+      "id": "svc-1",
+      "title": "Social Media Management",
+      "slug": "social-media-management",
+      "summary": "Planning, scheduling, and growing brand accounts with strategy and consistency.",
+      "detail": "Managing end-to-end social media presence — from content planning to community engagement. Includes the Diniyyah Al Azhar portfolio and live streaming hosting.",
+      "icon": "megaphone",
+      "order": 1
+    },
+    {
+      "id": "svc-2",
+      "title": "Content Design",
+      "slug": "content-design",
+      "summary": "Designing scroll-stopping content built to earn reach and engagement.",
+      "detail": "A gallery of content design work for HaloJob and Graha, featuring the top-performing pieces with the highest engagement.",
+      "icon": "grid",
+      "order": 2
+    },
+    {
+      "id": "svc-3",
+      "title": "Brand Visual",
+      "slug": "brand-visual",
+      "summary": "Building cohesive brand identities across print and digital touchpoints.",
+      "detail": "Brochures, booth design, company guide books, and company profile voice-overs — crafting a consistent brand look and feel.",
+      "icon": "palette",
+      "order": 3
+    },
+    {
+      "id": "svc-4",
+      "title": "Copy Writing",
+      "slug": "copy-writing",
+      "summary": "Words that carry the message and move the audience.",
+      "detail": "Article and long-form writing that communicates ideas clearly and persuasively.",
+      "icon": "pen",
+      "order": 4
+    },
+    {
+      "id": "svc-5",
+      "title": "Photography",
+      "slug": "photography",
+      "summary": "Capturing moments and products with a clean, story-driven eye.",
+      "detail": "Photography for content, products, and events — composing frames that feel natural, on-brand, and ready to publish across social platforms.",
+      "icon": "camera",
+      "order": 5
+    }
+  ],
+  "projects": [
+    {
+      "id": "prj-1",
+      "title": "Diniyyah Al Azhar — Social Media",
+      "category": "Social Media Management",
+      "client": "Yayasan Diniyyah Al Azhar",
+      "year": "2024",
+      "engagement": "",
+      "featured": true,
+      "cover": "",
+      "gallery": [],
+      "tags": [
+        "Instagram",
+        "Content Planning",
+        "Community"
+      ],
+      "description": "Full social media management for Diniyyah Al Azhar — content planning, publishing, and engagement to grow the institution's digital presence.",
+      "link": "",
+      "order": 1
+    },
+    {
+      "id": "prj-2",
+      "title": "Live Streaming Host",
+      "category": "Social Media Management",
+      "client": "",
+      "year": "2024",
+      "engagement": "",
+      "featured": false,
+      "cover": "",
+      "gallery": [],
+      "tags": [
+        "Live Streaming",
+        "Host"
+      ],
+      "description": "Hosting live streaming sessions — engaging audiences in real time and driving interaction across platforms.",
+      "link": "",
+      "order": 2
+    },
+    {
+      "id": "prj-3",
+      "title": "HaloJob — Content Gallery",
+      "category": "Content Design",
+      "client": "HaloJob",
+      "year": "2024",
+      "engagement": "Top 3 highest engagement",
+      "featured": true,
+      "cover": "",
+      "gallery": [],
+      "tags": [
+        "Content Design",
+        "Engagement"
+      ],
+      "description": "A gallery of content design pieces for HaloJob, highlighting the top 3 posts with the highest engagement.",
+      "link": "",
+      "order": 3
+    },
+    {
+      "id": "prj-4",
+      "title": "Graha — Content Gallery",
+      "category": "Content Design",
+      "client": "PT. Graha Karya Informasi",
+      "year": "2025",
+      "engagement": "Top 3 highest engagement",
+      "featured": true,
+      "cover": "",
+      "gallery": [],
+      "tags": [
+        "Content Design",
+        "Engagement"
+      ],
+      "description": "Content design gallery for Graha, showcasing best-performing pieces with strong engagement.",
+      "link": "",
+      "order": 4
+    },
+    {
+      "id": "prj-5",
+      "title": "Brand Visual Kit",
+      "category": "Brand Visual",
+      "client": "",
+      "year": "2025",
+      "engagement": "",
+      "featured": true,
+      "cover": "",
+      "gallery": [],
+      "tags": [
+        "Brochure",
+        "Booth",
+        "Guide Book",
+        "Voice Over"
+      ],
+      "description": "Brand visual work: brochures, booth design, a company guide book, and company profile voice-over.",
+      "link": "",
+      "order": 5
+    },
+    {
+      "id": "prj-6",
+      "title": "Article Writing",
+      "category": "Copy Writing",
+      "client": "",
+      "year": "2025",
+      "engagement": "",
+      "featured": false,
+      "cover": "",
+      "gallery": [],
+      "tags": [
+        "Article",
+        "Copywriting"
+      ],
+      "description": "Written articles crafted to inform and engage the target audience.",
+      "link": "",
+      "order": 6
+    }
+  ],
+  "experiences": [
+    {
+      "id": "exp-1",
+      "role": "Social Media Specialist",
+      "company": "PT. Graha Karya Informasi",
+      "period": "Nov 2024 – Present",
+      "order": 1
+    },
+    {
+      "id": "exp-2",
+      "role": "Content Creator",
+      "company": "Yayasan Diniyyah Al Azhar",
+      "period": "Jul 2023 – Nov 2024",
+      "order": 2
+    }
+  ],
+  "tools": [
+    {
+      "id": "tool-1",
+      "name": "Adobe Photoshop",
+      "description": "Creating and refining social media visuals, promotional materials, and digital content with strong, consistent, and engaging visual communication.",
+      "order": 1
+    },
+    {
+      "id": "tool-2",
+      "name": "CapCut",
+      "description": "Producing dynamic short-form videos by combining footage, audio, text, effects, and transitions for Reels, TikTok, and other digital platforms.",
+      "order": 2
+    },
+    {
+      "id": "tool-3",
+      "name": "Meta Business Suite",
+      "description": "Planning and scheduling content, managing Facebook and Instagram accounts, monitoring audience engagement, and analyzing content performance.",
+      "order": 3
+    }
+  ],
+  "videos": [
+    {
+      "id": "vid-1",
+      "title": "Content Showcase",
+      "youtubeUrl": "https://youtu.be/KX2mxc885VI?si=MDDYpz0j8l9Vz4rG",
+      "description": "A short-form video piece produced end-to-end.",
+      "order": 1
+    },
+    {
+      "id": "vid-2",
+      "title": "Creative Reel",
+      "youtubeUrl": "https://youtu.be/T2H94OuxBco?si=CazZBCUrEphwCjCH",
+      "description": "Another highlight from my video content work.",
+      "order": 2
+    }
+  ]
+}
