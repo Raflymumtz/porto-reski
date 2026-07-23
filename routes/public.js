@@ -37,19 +37,23 @@ router.get('/about', (req, res) => {
   });
 });
 
+// The projects page groups every category into three fixed sections.
+const PROJECT_SECTIONS = [
+  { title: 'Social Media Management', categories: ['Social Media Management', 'Content Design'] },
+  { title: 'Brand Visual Kit', categories: ['Brand Visual'] },
+  { title: 'Article Writing', categories: ['Copy Writing'] },
+];
+
 router.get('/projects', (req, res) => {
-  const services = db.list('services');
   const all = db.list('projects');
-  const category = req.query.category || '';
-  const projects = category
-    ? all.filter((p) => p.category === category)
-    : all;
+  const sections = PROJECT_SECTIONS.map((s) => ({
+    ...s,
+    projects: all.filter((p) => s.categories.includes(p.category)),
+  })).filter((s) => s.projects.length);
   res.render('public/projects', {
     title: 'Projects — Reski',
     activeNav: 'projects',
-    services,
-    projects,
-    category,
+    sections,
   });
 });
 
@@ -60,11 +64,19 @@ router.get('/projects/:id', (req, res, next) => {
     .list('projects')
     .filter((p) => p.category === project.category && p.id !== project.id)
     .slice(0, 3);
+  const topVideos = db
+    .list('topVideos')
+    .filter((v) => v.projectId === project.id)
+    .map((v) => ({ ...v, embedId: db.youtubeId(v.youtubeUrl) }))
+    .slice(0, 5);
+  const igPosts = db.list('igPosts').filter((p) => p.projectId === project.id);
   res.render('public/project-detail', {
     title: `${project.title} — Reski`,
     activeNav: 'projects',
     project,
     related,
+    topVideos,
+    igPosts,
   });
 });
 

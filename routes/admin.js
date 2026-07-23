@@ -72,6 +72,7 @@ router.get('/', (req, res) => {
 const profileUpload = upload.fields([
   { name: 'heroImageFile', maxCount: 1 },
   { name: 'aboutImageFile', maxCount: 1 },
+  { name: 'aboutGalleryFiles', maxCount: 20 },
 ]);
 
 router.get('/profile', (req, res) => {
@@ -87,8 +88,16 @@ router.post('/profile', profileUpload, (req, res) => {
   if (files.aboutImageFile && files.aboutImageFile[0]) {
     patch.aboutImage = '/uploads/' + files.aboutImageFile[0].filename;
   }
+  let kept = req.body.aboutGallery || [];
+  if (typeof kept === 'string') kept = [kept];
+  const removed = [].concat(req.body.aboutGallery__remove || []);
+  kept = kept.filter((url) => url && !removed.includes(url));
+  const uploaded = (files.aboutGalleryFiles || []).map((x) => '/uploads/' + x.filename);
+  patch.aboutGallery = kept.concat(uploaded);
   delete patch.heroImageFile;
   delete patch.aboutImageFile;
+  delete patch.aboutGalleryFiles;
+  delete patch['aboutGallery__remove'];
   db.updateProfile(patch);
   setFlash(req, 'success', 'Settings saved.');
   res.redirect(`${res.locals.adminBase}/profile`);
@@ -141,6 +150,7 @@ function parseBody(resource, body, files) {
 // Multer fields cover every possible file input across resources.
 const crudUpload = upload.fields([
   { name: 'coverFile', maxCount: 1 },
+  { name: 'imageFile', maxCount: 1 },
   { name: 'galleryFiles', maxCount: 20 },
 ]);
 
@@ -165,6 +175,7 @@ router.get('/r/:resource/new', (req, res, next) => {
     item: {},
     isNew: true,
     serviceTitles: db.list('services').map((s) => s.title),
+    projectOptions: db.list('projects').map((p) => ({ id: p.id, title: p.title })),
   });
 });
 
@@ -180,6 +191,7 @@ router.get('/r/:resource/:id/edit', (req, res, next) => {
     item,
     isNew: false,
     serviceTitles: db.list('services').map((s) => s.title),
+    projectOptions: db.list('projects').map((p) => ({ id: p.id, title: p.title })),
   });
 });
 

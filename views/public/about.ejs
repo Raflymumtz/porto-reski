@@ -22,9 +22,12 @@
         </div>
       </div>
       <div class="about-photo reveal">
-        <div class="glass photo-card">
-          <% if (profile.aboutImage) { %>
-            <img src="<%= profile.aboutImage %>" alt="<%= profile.name %>" />
+        <div class="glass photo-card photo-carousel">
+          <% var gallery = (profile.aboutGallery && profile.aboutGallery.length) ? profile.aboutGallery : (profile.aboutImage ? [profile.aboutImage] : []); %>
+          <% if (gallery.length) { %>
+            <% gallery.forEach(function(src, i){ %>
+              <img src="<%= src %>" alt="<%= profile.name %>" class="carousel-slide <%= i === 0 ? 'is-active' : '' %>" style="--slide-i:<%= i %>" />
+            <% }); %>
           <% } else { %>
             <div class="photo-placeholder"><span><%= profile.name.charAt(0) %></span><p>Foto pribadi Reski</p></div>
           <% } %>
@@ -64,9 +67,17 @@
         <p class="section-lead"><%= profile.toolsIntro %></p>
       </div>
       <div class="tools-grid">
+        <%
+          var toolLogos = {
+            'adobe photoshop': { label: 'Ps', class: 'logo-photoshop' },
+            'capcut': { label: 'CC', class: 'logo-capcut' },
+            'meta business suite': { label: 'M', class: 'logo-meta' },
+          };
+        %>
         <% tools.forEach(function(t, i){ %>
+          <% var logo = toolLogos[(t.name || '').trim().toLowerCase()] || { label: (t.name || '?').charAt(0).toUpperCase(), class: 'logo-generic' }; %>
           <article class="tool glass reveal" style="--i:<%= i %>">
-            <span class="tool-index">0<%= i+1 %></span>
+            <span class="tool-logo <%= logo.class %>"><%= logo.label %></span>
             <h3><%= t.name %></h3>
             <p><%= t.description %></p>
           </article>

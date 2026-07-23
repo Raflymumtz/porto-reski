@@ -52,6 +52,63 @@
         </div>
       <% } %>
 
+      <% if (topVideos && topVideos.length) { %>
+        <section class="video-showcase reveal">
+          <h2 class="serif section-sub-title">Top performing videos</h2>
+          <div class="video-showcase-scroll">
+            <% topVideos.forEach(function(v){ %>
+              <article class="video-showcase-item glass">
+                <div class="vs-media">
+                  <% if (v.embedId) { %>
+                    <iframe src="https://www.youtube-nocookie.com/embed/<%= v.embedId %>" title="<%= project.title %> video"
+                            loading="lazy"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                  <% } else { %>
+                    <div class="thumb-placeholder"><span>Invalid video link</span></div>
+                  <% } %>
+                </div>
+                <div class="vs-body">
+                  <% if (v.caption) { %><p class="vs-caption"><%= v.caption %></p><% } %>
+                  <div class="vs-engagement">
+                    <span><%- include('../partials/icon', { name: 'heart' }) %><%= (v.likes || 0).toLocaleString() %></span>
+                    <span><%- include('../partials/icon', { name: 'comment' }) %><%= (v.comments || 0).toLocaleString() %></span>
+                    <span><%- include('../partials/icon', { name: 'eye' }) %><%= (v.views || 0).toLocaleString() %></span>
+                  </div>
+                </div>
+              </article>
+            <% }); %>
+          </div>
+        </section>
+      <% } %>
+
+      <% if (igPosts && igPosts.length) { %>
+        <section class="ig-showcase reveal">
+          <h2 class="serif section-sub-title">Top posts</h2>
+          <div class="ig-grid">
+            <% igPosts.forEach(function(p){ %>
+              <div class="ig-card glass">
+                <div class="ig-head">
+                  <span class="ig-avatar">📷</span>
+                  <span class="ig-account">@<%= p.account %></span>
+                  <a class="ig-follow" href="<%= p.instagramUrl %>" target="_blank" rel="noopener">Follow</a>
+                </div>
+                <a class="ig-image" href="<%= p.instagramUrl %>" target="_blank" rel="noopener">
+                  <% if (p.image) { %><img src="<%= p.image %>" alt="Instagram post by @<%= p.account %>" />
+                  <% } else { %><div class="thumb-placeholder"><span>Instagram</span></div><% } %>
+                </a>
+                <div class="ig-stats">
+                  <span><%- include('../partials/icon', { name: 'heart' }) %><%= (p.likes || 0).toLocaleString() %></span>
+                  <span><%- include('../partials/icon', { name: 'comment' }) %><%= (p.comments || 0).toLocaleString() %></span>
+                  <span><%- include('../partials/icon', { name: 'send' }) %><%= (p.shares || 0).toLocaleString() %></span>
+                  <span><%- include('../partials/icon', { name: 'bookmark' }) %><%= (p.saves || 0).toLocaleString() %></span>
+                </div>
+              </div>
+            <% }); %>
+          </div>
+        </section>
+      <% } %>
+
       <% if (related && related.length) { %>
         <section class="related">
           <h2 class="serif">More in <%= project.category %></h2>

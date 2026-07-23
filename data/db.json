@@ -1,6 +1,6 @@
 {
   "profile": {
-    "name": "Reski",
+    "name": "Reski Febrianti",
     "role": "Social Media Specialist",
     "location": "Jakarta, Indonesia",
     "brand": "Creative Space",
@@ -14,6 +14,10 @@
     "storyText": "Somehow, one idea turned into a post, one post became a campaign, and now here I am — planning content, editing videos, writing captions, and checking social media insights professionally.",
     "toolsIntro": "The tools I use most often to transform ideas into engaging content, manage digital campaigns, and build meaningful connections between brands and their audiences.",
     "aboutImage": "/uploads/whatsapp-image-2026-07-13-at-22-33-43-mrjbp4u6.jpeg",
+    "aboutGallery": [
+      "/uploads/whatsapp-image-2026-07-13-at-22-33-43-mrjbp4u6.jpeg",
+      "/uploads/whatsapp-image-2026-07-13-at-22-33-43-mrjbw7cn.jpeg"
+    ],
     "email": "reskifebrianti62@gmail.com",
     "linkedin": "https://www.linkedin.com/in/reski"
   },
@@ -145,7 +149,7 @@
       "client": "",
       "year": "2025",
       "engagement": "",
-      "featured": true,
+      "featured": false,
       "cover": "",
       "gallery": [],
       "tags": [
@@ -218,15 +222,141 @@
       "id": "vid-1",
       "title": "Content Showcase",
       "youtubeUrl": "https://youtu.be/KX2mxc885VI?si=MDDYpz0j8l9Vz4rG",
-      "description": "A short-form video piece produced end-to-end.",
+      "description": "Voiceover For Company Profile",
       "order": 1
     },
     {
       "id": "vid-2",
       "title": "Creative Reel",
       "youtubeUrl": "https://youtu.be/T2H94OuxBco?si=CazZBCUrEphwCjCH",
-      "description": "Another highlight from my video content work.",
+      "description": "Sebagai Host di Podcast",
       "order": 2
+    }
+  ],
+  "topVideos": [
+    {
+      "id": "tv-1",
+      "projectId": "prj-1",
+      "youtubeUrl": "https://youtu.be/KX2mxc885VI?si=MDDYpz0j8l9Vz4rG",
+      "caption": "Ramadan campaign reel — behind-the-scenes moments packaged into a fast-paced recap that drove the highest saves of the month.",
+      "likes": 4820,
+      "comments": 312,
+      "views": 58200,
+      "order": 1
+    },
+    {
+      "id": "tv-2",
+      "projectId": "prj-1",
+      "youtubeUrl": "https://youtu.be/T2H94OuxBco?si=CazZBCUrEphwCjCH",
+      "caption": "New student open-house teaser — short hook, big turnout. Shared across Instagram and TikTok on the same day.",
+      "likes": 3910,
+      "comments": 204,
+      "views": 41500,
+      "order": 2
+    },
+    {
+      "id": "tv-3",
+      "projectId": "prj-1",
+      "youtubeUrl": "https://youtu.be/KX2mxc885VI?si=MDDYpz0j8l9Vz4rG",
+      "caption": "Everyday classroom moments turned into a warm, community-first reel — one of the top comment-drivers this quarter.",
+      "likes": 2765,
+      "comments": 188,
+      "views": 33100,
+      "order": 3
+    },
+    {
+      "id": "tv-4",
+      "projectId": "prj-1",
+      "youtubeUrl": "https://youtu.be/T2H94OuxBco?si=CazZBCUrEphwCjCH",
+      "caption": "Graduation day highlight reel — cut for maximum re-watch value, ending on the class photo moment.",
+      "likes": 2410,
+      "comments": 96,
+      "views": 27800,
+      "order": 4
+    },
+    {
+      "id": "tv-5",
+      "projectId": "prj-1",
+      "youtubeUrl": "https://youtu.be/KX2mxc885VI?si=MDDYpz0j8l9Vz4rG",
+      "caption": "Quick tips series intro — establishing a recurring format that grew steady week-over-week engagement.",
+      "likes": 1980,
+      "comments": 74,
+      "views": 21300,
+      "order": 5
+    }
+  ],
+  "igPosts": [
+    {
+      "id": "ig-1",
+      "projectId": "prj-3",
+      "image": "/uploads/whatsapp-image-2026-07-13-at-22-33-43-mrjbp4u6.jpeg",
+      "instagramUrl": "https://www.instagram.com/halojob.id/",
+      "account": "halojob.id",
+      "likes": 2840,
+      "comments": 156,
+      "shares": 412,
+      "saves": 980,
+      "order": 1
+    },
+    {
+      "id": "ig-2",
+      "projectId": "prj-3",
+      "image": "/uploads/whatsapp-image-2026-07-13-at-22-33-43-mrjbw7cn.jpeg",
+      "instagramUrl": "https://www.instagram.com/halojob.id/",
+      "account": "halojob.id",
+      "likes": 1975,
+      "comments": 88,
+      "shares": 260,
+      "saves": 640,
+      "order": 2
+    },
+    {
+      "id": "ig-3",
+      "projectId": "prj-3",
+      "image": "/uploads/whatsapp-image-2026-07-13-at-22-33-43-mrjbp4u6.jpeg",
+      "instagramUrl": "https://www.instagram.com/halojob.id/",
+      "account": "halojob.id",
+      "likes": 1512,
+      "comments": 64,
+      "shares": 145,
+      "saves": 410,
+      "order": 3
+    },
+    {
+      "id": "ig-4",
+      "projectId": "prj-4",
+      "image": "/uploads/whatsapp-image-2026-07-13-at-22-33-43-mrjbw7cn.jpeg",
+      "instagramUrl": "https://www.instagram.com/grahakaryainformasi/",
+      "account": "grahakaryainformasi",
+      "likes": 2190,
+      "comments": 121,
+      "shares": 298,
+      "saves": 705,
+      "order": 1
+    },
+    {
+      "id": "ig-5",
+      "projectId": "prj-4",
+      "image": "/uploads/whatsapp-image-2026-07-13-at-22-33-43-mrjbp4u6.jpeg",
+      "instagramUrl": "https://www.instagram.com/grahakaryainformasi/",
+      "account": "grahakaryainformasi",
+      "likes": 1680,
+      "comments": 79,
+      "shares": 190,
+      "saves": 520,
+      "order": 2
+    },
+    {
+      "id": "ig-6",
+      "projectId": "prj-4",
+      "image": "/uploads/whatsapp-image-2026-07-13-at-22-33-43-mrjbw7cn.jpeg",
+      "instagramUrl": "https://www.instagram.com/grahakaryainformasi/",
+      "account": "grahakaryainformasi",
+      "likes": 1340,
+      "comments": 58,
+      "shares": 132,
+      "saves": 355,
+      "order": 3
     }
   ]
 }

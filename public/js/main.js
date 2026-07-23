@@ -30,6 +30,20 @@ if ('IntersectionObserver' in window && revealEls.length) {
   revealEls.forEach((el) => el.classList.add('in'));
 }
 
+// About page photo carousel — auto-crossfade between multiple photos
+const carousel = document.querySelector('.photo-carousel');
+if (carousel) {
+  const slides = carousel.querySelectorAll('.carousel-slide');
+  if (slides.length > 1) {
+    let active = 0;
+    setInterval(() => {
+      slides[active].classList.remove('is-active');
+      active = (active + 1) % slides.length;
+      slides[active].classList.add('is-active');
+    }, 3800);
+  }
+}
+
 // Subtle parallax on the hero photo
 const heroMedia = document.querySelector('.hero-media');
 if (heroMedia && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

@@ -37,6 +37,14 @@
             <input id="f-<%= f.name %>" type="text" name="<%= f.name %>"
                    value="<%= Array.isArray(item[f.name]) ? item[f.name].join(', ') : (item[f.name] || '') %>" />
 
+          <% } else if (f.type === 'select' && f.optionsFrom === 'projects') { %>
+            <select id="f-<%= f.name %>" name="<%= f.name %>">
+              <option value="">— choose —</option>
+              <% (typeof projectOptions !== 'undefined' ? projectOptions : []).forEach(function(o){ %>
+                <option value="<%= o.id %>" <%= item[f.name] === o.id ? 'selected' : '' %>><%= o.title %></option>
+              <% }); %>
+            </select>
+
           <% } else if (f.type === 'select') { %>
             <% var opts = f.options || (f.optionsFrom === 'services' ? serviceTitles : []); %>
             <select id="f-<%= f.name %>" name="<%= f.name %>">

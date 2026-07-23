@@ -43,6 +43,22 @@
         <% if (profile.aboutImage) { %><div class="img-current"><img src="<%= profile.aboutImage %>" alt="" /></div><% } %>
         <input type="file" name="aboutImageFile" accept="image/*" />
       </div>
+      <div class="field">
+        <label class="field-label">About page photo gallery (rotates automatically on the About page)</label>
+        <% if (Array.isArray(profile.aboutGallery) && profile.aboutGallery.length) { %>
+          <div class="gallery-manage">
+            <% profile.aboutGallery.forEach(function(url){ %>
+              <label class="gallery-thumb">
+                <img src="<%= url %>" alt="" />
+                <input type="hidden" name="aboutGallery" value="<%= url %>" />
+                <span class="remove-tag"><input type="checkbox" name="aboutGallery__remove" value="<%= url %>" /> remove</span>
+              </label>
+            <% }); %>
+          </div>
+        <% } %>
+        <input type="file" name="aboutGalleryFiles" accept="image/*" multiple />
+        <p class="field-hint">Add one or more photos — they'll fade between each other on the About page.</p>
+      </div>
 
       <h2 class="form-section">Contact (footer)</h2>
       <div class="grid-2">
