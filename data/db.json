@@ -18,6 +18,8 @@
       "/uploads/whatsapp-image-2026-07-13-at-22-33-43-mrjbp4u6.jpeg",
       "/uploads/whatsapp-image-2026-07-13-at-22-33-43-mrjbw7cn.jpeg"
     ],
+    "projectsSection1Title": "Social Media Management",
+    "projectsSection2Title": "Others Projects",
     "email": "reskifebrianti62@gmail.com",
     "linkedin": "https://www.linkedin.com/in/reski"
   },
@@ -70,31 +72,12 @@
   ],
   "projects": [
     {
-      "id": "prj-1",
-      "title": "Diniyyah Al Azhar — Social Media",
-      "category": "Social Media Management",
-      "client": "Yayasan Diniyyah Al Azhar",
-      "year": "2024",
-      "engagement": "",
-      "featured": true,
-      "cover": "",
-      "gallery": [],
-      "tags": [
-        "Instagram",
-        "Content Planning",
-        "Community"
-      ],
-      "description": "Full social media management for Diniyyah Al Azhar — content planning, publishing, and engagement to grow the institution's digital presence.",
-      "link": "",
-      "order": 1
-    },
-    {
       "id": "prj-2",
       "title": "Live Streaming Host",
       "category": "Social Media Management",
       "client": "",
       "year": "2024",
-      "engagement": "",
+      "engagement": "Top 3 highest engagement",
       "featured": false,
       "cover": "",
       "gallery": [],
@@ -236,9 +219,9 @@
   "topVideos": [
     {
       "id": "tv-1",
-      "projectId": "prj-1",
+      "projectId": "prj-2",
       "youtubeUrl": "https://youtu.be/KX2mxc885VI?si=MDDYpz0j8l9Vz4rG",
-      "caption": "Ramadan campaign reel — behind-the-scenes moments packaged into a fast-paced recap that drove the highest saves of the month.",
+      "caption": "Live Q&A session recap — fast-paced highlight reel from a two-hour stream, cut down to the best audience moments.",
       "likes": 4820,
       "comments": 312,
       "views": 58200,
@@ -246,9 +229,9 @@
     },
     {
       "id": "tv-2",
-      "projectId": "prj-1",
+      "projectId": "prj-2",
       "youtubeUrl": "https://youtu.be/T2H94OuxBco?si=CazZBCUrEphwCjCH",
-      "caption": "New student open-house teaser — short hook, big turnout. Shared across Instagram and TikTok on the same day.",
+      "caption": "Product launch livestream teaser — high energy opening segment that pulled in the biggest concurrent viewer spike.",
       "likes": 3910,
       "comments": 204,
       "views": 41500,
@@ -256,9 +239,9 @@
     },
     {
       "id": "tv-3",
-      "projectId": "prj-1",
+      "projectId": "prj-2",
       "youtubeUrl": "https://youtu.be/KX2mxc885VI?si=MDDYpz0j8l9Vz4rG",
-      "caption": "Everyday classroom moments turned into a warm, community-first reel — one of the top comment-drivers this quarter.",
+      "caption": "Behind-the-scenes of a brand livestream — warm, conversational hosting that kept comments rolling throughout.",
       "likes": 2765,
       "comments": 188,
       "views": 33100,
@@ -266,9 +249,9 @@
     },
     {
       "id": "tv-4",
-      "projectId": "prj-1",
+      "projectId": "prj-2",
       "youtubeUrl": "https://youtu.be/T2H94OuxBco?si=CazZBCUrEphwCjCH",
-      "caption": "Graduation day highlight reel — cut for maximum re-watch value, ending on the class photo moment.",
+      "caption": "Interactive giveaway stream highlight — hosted segment built around real-time audience participation.",
       "likes": 2410,
       "comments": 96,
       "views": 27800,
@@ -276,9 +259,9 @@
     },
     {
       "id": "tv-5",
-      "projectId": "prj-1",
+      "projectId": "prj-2",
       "youtubeUrl": "https://youtu.be/KX2mxc885VI?si=MDDYpz0j8l9Vz4rG",
-      "caption": "Quick tips series intro — establishing a recurring format that grew steady week-over-week engagement.",
+      "caption": "Weekly live series intro — establishing a recurring hosting format that grew steady week-over-week engagement.",
       "likes": 1980,
       "comments": 74,
       "views": 21300,

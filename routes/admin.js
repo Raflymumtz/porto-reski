@@ -151,6 +151,7 @@ function parseBody(resource, body, files) {
 const crudUpload = upload.fields([
   { name: 'coverFile', maxCount: 1 },
   { name: 'imageFile', maxCount: 1 },
+  { name: 'logoFile', maxCount: 1 },
   { name: 'galleryFiles', maxCount: 20 },
 ]);
 

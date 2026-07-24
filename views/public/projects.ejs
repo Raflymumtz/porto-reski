@@ -20,9 +20,9 @@
       <% if (sections.length === 0) { %>
         <div class="empty glass">No projects yet.</div>
       <% } else { %>
-        <% sections.forEach(function(sec, si){ %>
+        <% sections.forEach(function(sec){ %>
           <div class="project-section">
-            <h2 class="project-section-title serif">0<%= si + 1 %>. <%= sec.title %></h2>
+            <h2 class="project-section-title serif"><%= sec.title %></h2>
             <div class="project-grid wide">
               <% sec.projects.forEach(function(p){ %>
                 <a class="project-card glass reveal" href="/projects/<%= p.id %>">

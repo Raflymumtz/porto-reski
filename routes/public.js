@@ -37,19 +37,17 @@ router.get('/about', (req, res) => {
   });
 });
 
-// The projects page groups every category into three fixed sections.
-const PROJECT_SECTIONS = [
-  { title: 'Social Media Management', categories: ['Social Media Management', 'Content Design'] },
-  { title: 'Brand Visual Kit', categories: ['Brand Visual'] },
-  { title: 'Article Writing', categories: ['Copy Writing'] },
-];
-
+// The projects page groups every category into two sections (titles editable in Admin → Site Settings).
 router.get('/projects', (req, res) => {
+  const profile = db.getProfile();
   const all = db.list('projects');
-  const sections = PROJECT_SECTIONS.map((s) => ({
-    ...s,
-    projects: all.filter((p) => s.categories.includes(p.category)),
-  })).filter((s) => s.projects.length);
+  const groups = [
+    { title: profile.projectsSection1Title || 'Social Media Management', categories: ['Social Media Management', 'Content Design'] },
+    { title: profile.projectsSection2Title || 'Others Projects', categories: ['Brand Visual', 'Copy Writing'] },
+  ];
+  const sections = groups
+    .map((s) => ({ ...s, projects: all.filter((p) => s.categories.includes(p.category)) }))
+    .filter((s) => s.projects.length);
   res.render('public/projects', {
     title: 'Projects — Reski',
     activeNav: 'projects',

@@ -44,7 +44,7 @@
         <input type="file" name="aboutImageFile" accept="image/*" />
       </div>
       <div class="field">
-        <label class="field-label">About page photo gallery (rotates automatically on the About page)</label>
+        <label class="field-label">About page photos (static, no animation)</label>
         <% if (Array.isArray(profile.aboutGallery) && profile.aboutGallery.length) { %>
           <div class="gallery-manage">
             <% profile.aboutGallery.forEach(function(url){ %>
@@ -57,7 +57,13 @@
           </div>
         <% } %>
         <input type="file" name="aboutGalleryFiles" accept="image/*" multiple />
-        <p class="field-hint">Add one or more photos — they'll fade between each other on the About page.</p>
+        <p class="field-hint">The first photo is the main shot; the second (if any) shows as a small accent photo. No motion/animation.</p>
+      </div>
+
+      <h2 class="form-section">Projects page</h2>
+      <div class="grid-2">
+        <div class="field"><label class="field-label">Section 1 title</label><input type="text" name="projectsSection1Title" value="<%= profile.projectsSection1Title || '' %>" /></div>
+        <div class="field"><label class="field-label">Section 2 title</label><input type="text" name="projectsSection2Title" value="<%= profile.projectsSection2Title || '' %>" /></div>
       </div>
 
       <h2 class="form-section">Contact (footer)</h2>
